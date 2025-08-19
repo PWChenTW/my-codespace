@@ -1,30 +1,24 @@
 {
-  "name": "Claude CLI Cloud Workspace",
-  "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+  "name": "Claude CLI Lightweight Workspace",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "20"
     },
-    "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.11"
-    },
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "installOhMyZsh": true,
+      "configureZshAsDefaultShell": true,
+      "username": "vscode"
+    }
   },
 
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-python.python",
-        "ms-python.vscode-pylance",
         "GitHub.copilot",
-        "GitHub.copilot-chat",
         "yzhang.markdown-all-in-one",
-        "oderwat.indent-rainbow",
-        "streetsidesoftware.code-spell-checker",
-        "eamodio.gitlens",
         "esbenp.prettier-vscode"
       ],
       "settings": {
@@ -39,16 +33,10 @@
     }
   },
 
-  "postCreateCommand": "bash .devcontainer/setup.sh",
-  "postStartCommand": "bash .devcontainer/startup.sh",
+  "postCreateCommand": "bash .devcontainer/setup-light.sh",
+  "postStartCommand": "bash .devcontainer/startup-light.sh",
 
   "remoteUser": "vscode",
   
-  "forwardPorts": [3000, 5000, 8000, 8080, 8888],
-  
-  "hostRequirements": {
-    "cpus": 2,
-    "memory": "4gb",
-    "storage": "32gb"
-  }
+  "forwardPorts": [3000, 8000, 8080]
 }
