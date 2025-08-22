@@ -1,0 +1,53 @@
+  
+  我們是一個在鏈上發行 dual currency investment vault 的平台，底層 hedge 是被訂閱 vault 的時候去 deribit 或是 okx 賣 options 對沖。
+  現在在探索增加我們 tvl 的可能性，所以在想能不能發一個無腦的 covered call strategy vault，讓訂閱的人能夠拿到 apy。
+  我知道 covered call 未必適合沒有現貨持倉部位的人，但這個先不用管。
+
+  1. 目標加密貨幣
+  - 您想要交易哪些加密貨幣？（例如：BTC、ETH、SOL、其他主流幣？）
+  先從BTC開始
+  - 是否有特定的市值或流動性要求？
+  BTC
+
+  2. 交易所選擇
+  - 現貨持倉使用哪個交易所？（Binance、Coinbase Pro、Kraken？）
+  現貨持倉應該是在 binance，不過這個先不用管，我只想先看看 naked covered call 策略績效
+  - 期權交易使用哪個平台？（Deribit 是主要選擇，但也有 Bybit、OKX 等）
+  我想探索三個交易所: deribit, okx, paradex
+  paradex 鏈結在這:https://docs.paradex.trade/getting-started/what-is-paradex
+  - 是否需要支援多個交易所？
+  先不用那麼複雜
+
+  3. 策略參數
+  - 賣出 Call 的執行價格通常設定在現價上方多少百分比？（例如：5%、10%、15%？）
+  這個要再探索，由回測決定
+  - 偏好的到期時間？（每週、雙週、每月？）
+  先每周吧，rolling
+  - 每次交易的部位大小佔總持倉多少比例？
+  沒有這個問題
+
+  4. 風險管理
+  - 最大可接受的單筆損失百分比？
+  先不要管
+  - 是否需要動態調整部位大小基於波動率？
+  先不用
+  - 停損機制：什麼情況下會平倉或調整策略？
+  先不用
+
+  5. 自動化程度
+  - 完全自動執行還是需要人工確認？
+  最終是完全自動執行，但我們現在只是研究階段
+  - 是否需要緊急停止功能？
+  先不用管這個
+  - 希望多久檢查一次市場狀況？
+  應該是 real time 吧
+
+  6. 技術偏好
+  - 程式語言偏好？（TypeScript/Node.js、Python、Go？）
+  Python
+  - 是否需要 Web 介面來監控策略？
+  先不用，先從探討可能性及簡單回測開始
+  - 資料庫偏好？（PostgreSQL、MongoDB、SQLite？）
+  先不要用資料庫
+
+  
